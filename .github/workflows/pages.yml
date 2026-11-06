@@ -1,3 +1,4 @@
+# Déploiement neuf : ne pas relancer un job échoué (artefacts en double)
 name: Publier la visite V3.1 sur GitHub Pages
 on:
   push:
