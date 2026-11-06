@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Relais Chaleur Lyon · Visite de la V3.1</title>
+<style>
+:root{color-scheme:light;--ink:#13222c;--sub:#596a71;--line:#d7dfe0;--blue:#14354a;--accent:#db744e}*{box-sizing:border-box}html{scroll-behavior:smooth}body{font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;margin:0;background:#edf1f2;color:var(--ink)}button,a{font:inherit}button{cursor:pointer}a{color:inherit}.banner{padding:10px 20px;text-align:center;background:#fff3d6;font-size:13px;color:#583b00}.bar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;background:#102936;color:#fff;padding:15px max(20px,calc((100vw - 1240px)/2));position:sticky;top:0;z-index:3;box-shadow:0 4px 22px #13222c25}.brand{font-weight:900;letter-spacing:-.03em;margin-right:auto}.brand span{color:#f3aa81}.bar button,.bar a{border:1px solid #78929b;border-radius:8px;background:#ffffff14;padding:7px 12px;color:white;text-decoration:none;font-size:13px}.bar button.active{background:#fff;color:#102936}.container{max-width:1240px;margin:auto;padding:27px 20px}.intro{display:flex;align-items:start;justify-content:space-between;gap:25px;flex-wrap:wrap}.intro h1{font-size:clamp(24px,3vw,37px);line-height:1.15;margin:5px 0 7px}.intro p{color:var(--sub);max-width:840px;margin:0 0 20px}.pill{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:99px;font-size:12px;padding:5px 11px}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}.controls button{background:white;padding:9px 14px;border:1px solid var(--line);border-radius:8px}.controls button.active{background:var(--blue);color:white}.viewer{border:1px solid #d9e2e4;background:white;border-radius:15px;overflow:hidden;box-shadow:0 7px 35px #142d3930}.viewer-top{padding:12px 17px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}.viewer-top strong{font-size:15px}.viewer-top p{color:var(--sub);margin:0;font-size:13px}.stage{min-height:350px;background:#dfe6e7;text-align:center;padding:23px}.stage img{display:block;margin:auto;width:100%;max-width:1110px;height:auto;box-shadow:0 3px 19px #1f384030;border-radius:5px}.stage.mobile img{max-width:390px}.action{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}.action button{background:#123447;color:#fff;border:0;padding:10px 16px;border-radius:9px}.action a{border:1px solid var(--line);padding:10px 16px;text-decoration:none;border-radius:9px;background:#fff}.note{font-size:14px;color:#435860;margin:14px 0}.foot{padding:20px 0 50px;color:var(--sub);font-size:13px}@media(max-width:650px){.bar{position:static}.brand{flex-basis:100%}.stage{padding:10px}.container{padding:20px 11px}.controls button{font-size:13px;padding:7px 10px}}
+</style></head><body>
+<div class="banner"><strong>APERÇU VISUEL DE LA V3.1</strong> — captures authentiques du projet. Les boutons et formulaires représentés dans les captures ne sont pas actifs ; aucune commande n'est envoyée.</div>
+<div class="bar"><div class="brand">RELAIS <span>CHALEUR</span> LYON</div><button type="button" data-group="public" class="active">Site client</button><button type="button" data-group="assistant">Parcours de demande</button><button type="button" data-group="admin">Administration</button><a href="https://github.com/Ervan-Marduel/relais-chaleur">Code GitHub</a></div>
+<main class="container">
+<div class="intro"><div><span class="pill">Version V3.1 · Présentation à Thibaut et Asna</span><h1 id="heading">Visiter le vrai site, écran par écran</h1><p>Les images ci-dessous sont les captures d'écran conservées avec le <strong>code original V3.1</strong>, et non une maquette réinventée. Sélectionnez une rubrique pour voir l'apparence exacte des pages.</p></div><div><button id="device" class="pill" type="button" aria-label="Basculer affichage ordinateur ou mobile">Vue : ordinateur ▾</button></div></div>
+<div class="controls" id="screens" aria-label="Choisir une page"></div>
+<div class="viewer"><div class="viewer-top"><div><strong id="screenName"></strong><p id="screenDesc"></p></div><span class="pill" id="counter"></span></div><div class="stage" id="stage"><img id="screenImage" alt="" loading="eager"></div></div>
+<div class="action"><button id="previous" type="button">← Écran précédent</button><button id="next" type="button">Écran suivant →</button><a id="full" target="_blank" rel="noopener noreferrer" href="#">Agrandir la capture ↗</a></div>
+<p class="note">Pour naviguer, choisissez « Site client », « Parcours de demande » ou « Administration », puis cliquez sur les rubriques. L'aperçu n'utilise pas de base de données et ne lance pas le serveur Next.js.</p>
+<div class="foot">Relais Chaleur Lyon · Démonstration visuelle statique · Aucun service commercial actif. Pour tester les vrais formulaires, emails, stocks et documents PDF, il faudra un déploiement de préproduction de l'application Next.js.</div>
+</main><script>
+const dir="docs/captures/";
+const sections={
+ public:[
+ ["Accueil","public-accueil-desktop.png","public-accueil-mobile-390.png","Chauffage et climatisation : les deux entrées du site"],
+ ["Chauffage","public-chauffage-desktop.png","public-chauffage-mobile-390.png","Location de radiateurs et tarifs"],
+ ["Climatisation","public-climatisation-desktop.png","public-climatisation-mobile-390.png","Offre de climatisation temporaire sur devis"],
+ ["Professionnels","public-professionnels-desktop.png","public-professionnels-mobile-390.png","Offre syndics, entreprises et bailleurs"],
+ ["Demande","public-demande-desktop.png","public-demande-mobile-390.png","Introduction à l'assistant de demande"]
+ ],
+ assistant:[
+ ["Recommandation","assistant-recommandation-desktop.png","assistant-recommandation-mobile-390.png","Dimensionnement indicatif des besoins"],
+ ["Tarification","assistant-prix-desktop.png","assistant-prix-mobile-390.png","Estimation et détail du prix"],
+ ["Récapitulatif","assistant-recapitulatif-desktop.png","assistant-recapitulatif-mobile-390.png","Vérification des informations avant envoi"],
+ ["Confirmation","assistant-succes-desktop.png","assistant-succes-mobile-390.png","Écran de confirmation de précommande"],
+ ["Professionnels","pro-succes-desktop.png",null,"Exemple du parcours professionnel"]
+ ],
+ admin:[
+ ["Tableau de bord","admin-tableau-de-bord-desktop.png",null,"Vue d'ensemble des demandes"],
+ ["Demandes","admin-liste-desktop.png",null,"Liste des demandes"],
+ ["Fiche demande","admin-fiche-demande-desktop.png",null,"Suivi complet d'une demande"],
+ ["Indicateurs","admin-kpi-desktop.png",null,"Indicateurs de pilotage"],
+ ["Matériel","admin-materiel-desktop.png",null,"Stock et disponibilité"],
+ ["Notifications","admin-notifications-desktop.png",null,"File d'envoi et événements"],
+ ["Paramètres","admin-parametres-desktop.png",null,"Paramètres métier"],
+ ["Remise","recette-constat-remise-incident-desktop.png",null,"Exemple de constat de remise"],
+ ["Reprise partielle","recette-constat-reprise-partielle-desktop.png",null,"Reprise d'une partie des appareils"],
+ ["Contrôle technique","controle-technique-formulaire-desktop.png",null,"Vérification avant remise en location"],
+ ["Bon PDF","bon-remise-reprise-apercu.png",null,"Modèle de bon de remise et de reprise"]
+ ]
+};
+let group="public",pos=0,mobile=false;
+const $=x=>document.getElementById(x);
+function render(){const items=sections[group],item=items[pos];document.querySelectorAll('[data-group]').forEach(b=>b.classList.toggle('active',b.dataset.group===group));$('screens').replaceChildren();for(let i=0;i<items.length;i++){const b=document.createElement('button');b.textContent=items[i][0];b.className=i===pos?'active':'';b.type='button';b.onclick=()=>{pos=i;render()};$('screens').appendChild(b)}const img=dir+(mobile&&item[2]?item[2]:item[1]);$('screenName').textContent=item[0];$('screenDesc').textContent=item[3];$('counter').textContent=(pos+1)+' / '+items.length;$('screenImage').src=img;$('screenImage').alt='Capture réelle V3.1 : '+item[0];$('full').href=img;$('stage').classList.toggle('mobile',mobile&&!!item[2]);$('device').textContent='Vue : '+(mobile?'mobile':'ordinateur')+' ▾';$('heading').textContent=group==='public'?'Visiter le site client V3.1':group==='assistant'?'Parcourir la demande V3.1':"Découvrir l'administration V3.1";}
+document.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{group=b.dataset.group;pos=0;render()});$('next').onclick=()=>{pos=(pos+1)%sections[group].length;render()};$('previous').onclick=()=>{pos=(pos+sections[group].length-1)%sections[group].length;render()};$('device').onclick=()=>{mobile=!mobile;render()};render();
+</script></body></html>
